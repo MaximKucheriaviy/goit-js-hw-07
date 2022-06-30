@@ -3,8 +3,6 @@ import { galleryItems } from './gallery-items.js';
 
 // console.log(galleryItems);
 
-const pictures = [];
-const gallery = document.querySelector('.gallery');
 const options = {
     onClose: (instance) => {
         document.removeEventListener('keyup', escapeListener)
@@ -15,6 +13,9 @@ const options = {
 }
 const modal = basicLightbox.create(`<img src="" alt = "" width="1280">`, options);
 
+
+const gallery = document.querySelector('.gallery');
+const pictures = [];
 galleryItems.forEach(item => {
     const div = document.createElement('div');
     div.classList.add('gallery__item');
