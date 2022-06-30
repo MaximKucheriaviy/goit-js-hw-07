@@ -13,7 +13,7 @@ const options = {
         document.addEventListener('keyup', escapeListener);
     }
 }
-let modal;
+const modal = basicLightbox.create(`<img src="" alt = "" width="1280">`, options);
 
 galleryItems.forEach(item => {
     const div = document.createElement('div');
@@ -41,11 +41,13 @@ gallery.append(...pictures);
 
 gallery.addEventListener('click', galleryClicker);
 
-function galleryClicker(event, ){
+function galleryClicker(event){
     const target = event.target
     event.preventDefault();
     if(target.classList.contains('gallery__image')){
-        modal = basicLightbox.create(`<img src="${target.dataset.sourse}" width="1280">`, options);
+        const img = modal.element().querySelector('img');
+        img.src = target.dataset.sourse;
+        img.alt = target.alt;
         modal.show();
     }
 }
