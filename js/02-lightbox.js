@@ -1,5 +1,9 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
+const options = {
+    captionsData: 'alt',
+    captionDelay: 250
+}
 const gallery = document.querySelector('.gallery');
 const pictures = [];
 galleryItems.forEach(item => {
@@ -25,4 +29,4 @@ galleryItems.forEach(item => {
 })
 gallery.append(...pictures);
 
-const box = new SimpleLightbox('.gallery a');
+const box = new SimpleLightbox('.gallery a', options);
